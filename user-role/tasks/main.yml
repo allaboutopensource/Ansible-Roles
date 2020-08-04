@@ -1,0 +1,7 @@
+---
+# tasks file for user-role
+- name: Deploy SSH Key
+  authorized_key: 
+            user=root
+            key="{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
+            state=present

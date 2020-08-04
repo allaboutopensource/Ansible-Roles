@@ -1,0 +1,24 @@
+---
+# tasks file for mysql-role
+
+
+- name: Update the software package repository
+  yum:
+      update_cache: yes
+
+- name: install the mysql rpm from a remote repo
+  yum:
+    name: https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm
+    state: present
+
+- name: Install MySQL
+  package:
+         name: mysql-server
+         state: latest
+
+- name: Starting the mysql service 
+  service: 
+     name=mysqld 
+     state=started 
+     enabled=true
+

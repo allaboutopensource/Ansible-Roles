@@ -1,0 +1,29 @@
+---
+# tasks file for ad-role
+
+- 
+  name: "Update the centos with the AD auth tools"
+  yum: 
+    name: realmd,sssd,oddjob,oddjob-mkhomedir,adcli,samba-common,samba-common-tools,ntpdate,ntp,python-pip,sudo
+    state: present
+- 
+  lineinfile: 
+    insertbefore: "nameserver 172.30.0.149"
+    line: "ellucian.com"
+    path: /etc/resolv.conf
+    state: present
+  name: "Add the search entry to the file"
+
+- name: Restarted services realmd in all cases
+  systemd:
+    name: "{{ item }}"
+    state: started
+    enabled: yes
+  with_items:
+      - dbus
+      - realmd
+- 
+  name: "Adding server to the domain"
+  shell: 
+    cmd: "echo SunilEllucian123456! | realm join --user=sunilkaadm corp.sct.com"
+
