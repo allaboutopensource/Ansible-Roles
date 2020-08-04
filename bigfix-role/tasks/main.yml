@@ -15,7 +15,7 @@
 
 - name: installing the masterhead
   get_url: 
-    url: "http://bigfix.ellucian.com:443/masthead/masthead.afxm"
+    url: "http://bigfix.domain.com:443/masthead/masthead.afxm"
     dest: "/tmp"
 
 -  name: Creating directory under /etc/opt
