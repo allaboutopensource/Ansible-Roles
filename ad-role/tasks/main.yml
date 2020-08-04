@@ -8,8 +8,8 @@
     state: present
 - 
   lineinfile: 
-    insertbefore: "nameserver 172.30.0.149"
-    line: "ellucian.com"
+    insertbefore: "nameserver 192.168.1.2"
+    line: "test.com"
     path: /etc/resolv.conf
     state: present
   name: "Add the search entry to the file"
@@ -25,5 +25,5 @@
 - 
   name: "Adding server to the domain"
   shell: 
-    cmd: "echo SunilEllucian123456! | realm join --user=sunilkaadm corp.sct.com"
+    cmd: "echo password | realm join --user=administrator test.domain.com"
 
