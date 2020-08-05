@@ -1,7 +1,7 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+This is the role to add the linux server to the AD domain.
 
 Requirements
 ------------
