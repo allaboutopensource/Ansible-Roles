@@ -1,7 +1,25 @@
----
-# tasks file for user-role
-- name: Deploy SSH Key
-  authorized_key: 
-            user=root
-            key="{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
-            state=present
+--- 
+-   name: "Copy centrify directory to the remote server"
+    copy: 
+     src: '/tmp/CentrifyUnix.zip'
+     dest: '/tmp'
+
+-   name: "install the unzip package"
+    yum:
+     name: 'unzip'
+     state: present
+
+- 
+    name: "Unarchive the centrify script"
+    unarchive: 
+      dest: '/tmp'
+      remote_src: true
+      src: '/tmp/CentrifyUnix.zip'
+- 
+    name: "Running the agent"
+    shell: |
+       dacontrol -e
+       ./install-bundle.sh --ent-suite
+       adjoin  --zone "Zone1" --user Centrifyadmin@domain.com -p "password" test.domain.com --name {{ ansible_hostname }} -c "OU=<OU>,OU=Computers,OU=Centrify,OU=AD,DC=test,DC=domain,DC=com"
+    args:
+      chdir: /tmp/Agents
