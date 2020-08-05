@@ -5,39 +5,23 @@ Roles are ways of automatically loading certain vars_files, tasks, and handlers 
 
 Role Directory structure:
 
-.travis.yml
-
+".travis.yml
 README.md
-
 defaults/
-
     main.yml
-    
 files/
-
 handlers/
-
     main.yml
-    
 meta/
-
     main.yml
-    
 tasks/
-
     main.yml
-    
 templates/
-
 tests/
-
     inventory
-    
     test.yml
-    
 vars/
-
-    main.yml
+    main.yml"
         
         
 You can create the role using the below command:
