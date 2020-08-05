@@ -31,3 +31,7 @@ rolename/
 You can create the role using the below command:
 
 ansible-galaxy init test-role
+
+you can run the playbook:
+
+ansible-playbook -i hosts it-package.yml -vvvv
