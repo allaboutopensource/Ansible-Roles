@@ -35,3 +35,5 @@ ansible-galaxy init test-role
 you can run the playbook:
 
 ansible-playbook -i hosts it-package.yml -vvvv
+
+These roles have been tested on centos 7.x server version and may vary with the distribution. 
