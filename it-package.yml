@@ -1,0 +1,8 @@
+---
+- name: "Provision Software via ansible"
+  hosts: all
+  become_method: sudo
+  user: root
+  gather_facts: true
+  roles:
+       - {role: it-package-role}
