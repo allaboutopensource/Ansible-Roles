@@ -6,11 +6,17 @@ Roles are ways of automatically loading certain vars_files, tasks, and handlers 
 Role Directory structure:
 
 webservers.yml
+
 fooservers.yml
+
 roles/
+
     common/
+    
         tasks/
+        
         handlers/
+        
         files/
         templates/
         vars/
@@ -24,4 +30,4 @@ roles/
         
 You can create the role using the below command:
 
-ansible-galaxy init role-1
+ansible-galaxy init test-role
