@@ -1,7 +1,7 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+This Role is to install the bigfix client on the linux based machine which uses the package yum
 
 Requirements
 ------------
